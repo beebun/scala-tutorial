@@ -6,3 +6,6 @@ http://aperiodic.net/phil/scala/s-99/
 
 good write on scala _ [underscore]
 http://ananthakumaran.in/2010/03/29/scala-underscore-magic.html
+
+scala reference
+https://twitter.github.io/scala_school/collections.html#filter
