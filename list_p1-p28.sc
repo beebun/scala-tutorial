@@ -98,7 +98,6 @@ pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
 // P10
 def encode(l: List[Symbol]): List[List[Any]] = pack(l).map(x => List(x.length,x.head))
 encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
-//res11: List[List[Any]] = List(List(4, 'a), List(1, 'b), List(2, 'c), List(2, 'a), List(1, 'd), List(4, 'e))
 
 
 // P11
@@ -107,6 +106,25 @@ def encodeModified(l: List[Symbol]): List[Any] = encode(l).map({
   case b => b
 })
 encodeModified(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+
+
+// P12
+def decode(l: List[(Int,Symbol)]): List[Any] = {
+  l.flatMap(x => List.tabulate(x._1)(_ => x._2))
+}
+decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
+
+
+// P14
+def duplicate(l: List[Symbol]): List[Symbol] = l.flatMap(x => List(x,x))
+duplicate(List('a, 'b, 'c, 'c, 'd))
+
+
+// P15
+def duplicateN(n: Int, l: List[Symbol]): List[Symbol] = {
+  l.flatMap(x => List.fill(n)(x))
+}
+duplicateN(10, List('a, 'b, 'c, 'c, 'd))
 
 
 // http://aperiodic.net/phil/scala/s-99/
